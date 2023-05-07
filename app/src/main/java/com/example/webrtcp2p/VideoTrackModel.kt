@@ -8,5 +8,6 @@ class VideoTrackModel {
     var name: String? = null
     var videoTrack: VideoTrack? = null
     var isTrackEnabled = false
+    var isDisconnected = false
     var isMute = false
 }

@@ -42,4 +42,15 @@
         app:layout_constraintEnd_toEndOf="@id/remoteView"
         app:layout_constraintTop_toTopOf="@id/remoteView"/>
 
+    <ImageView
+        android:id="@+id/lastFrameImage"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/mic_unmute"
+        android:scaleType="fitXY"
+        android:layout_margin="10dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="@id/remoteView"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

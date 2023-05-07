@@ -45,8 +45,9 @@ class CallActivity : AppCompatActivity(), MyWebRTCCallBack {
             if (list.isNotEmpty()) {
 
                 list[1].apply {
-                    this.isMute = !this.isMute
+//                    this.isMute = !this.isMute
 //                    this.isTrackEnabled = !this.isTrackEnabled
+                    this.isDisconnected = !this.isDisconnected
                 }
 
                 mapListAndSubmit()
@@ -92,6 +93,7 @@ class CallActivity : AppCompatActivity(), MyWebRTCCallBack {
             model.videoTrack = list[0].videoTrack
             model.isTrackEnabled = true
             model.name = "Batman"
+            model.isDisconnected = false
 
             list.add(model)
 
@@ -107,10 +109,11 @@ class CallActivity : AppCompatActivity(), MyWebRTCCallBack {
                 isMute = it.isMute
                 videoTrack = it.videoTrack
                 isTrackEnabled = it.isTrackEnabled
+                isDisconnected = it.isDisconnected
             }
         }
-                        participantAdapter.updateListItems(list3)
-//        participantAdapter.submitList(list3)
+//                        participantAdapter.updateListItems(list3)
+        participantAdapter.submitList(list3)
     }
 
     override fun onDestroy() {
@@ -142,6 +145,7 @@ class CallActivity : AppCompatActivity(), MyWebRTCCallBack {
                     model.id = u.toString()
                     model.videoTrack = stream!!.videoTracks[0]
                     model.isTrackEnabled = true
+                    model.isDisconnected = false
                     when(u){
                         0 -> {model.name = "Spider Man"}
                         1 -> {model.name = "Iron Man"}
@@ -152,8 +156,8 @@ class CallActivity : AppCompatActivity(), MyWebRTCCallBack {
                     myList.add(model)
                 }
                 list.addAll(myList)
-                participantAdapter.updateListItems(myList)
-//                participantAdapter.submitList(list)
+//                participantAdapter.updateListItems(myList)
+                participantAdapter.submitList(list)
             }
 
             override fun onIceGatheringState(state: String) {
